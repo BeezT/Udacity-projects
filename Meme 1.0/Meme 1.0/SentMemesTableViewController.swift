@@ -19,6 +19,8 @@ class SentMemesTableViewController: UIViewController,UITableViewDelegate,UITable
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController!.tabBar.isHidden=false
+        let appDelegate=UIApplication.shared.delegate as! AppDelegate
+        sentMemes=appDelegate.memes
         self.memeTableview.reloadData()
 
     }
@@ -26,10 +28,7 @@ class SentMemesTableViewController: UIViewController,UITableViewDelegate,UITable
     //set up navigation button and call the shared model from App delegate
     override func viewDidLoad() {
         navigationItem.rightBarButtonItem=UIBarButtonItem(title: "start new meme", style: .plain, target: self, action: #selector(addNewMeme))
-        let appDelegate=UIApplication.shared.delegate as! AppDelegate
-        sentMemes=appDelegate.memes
-        print(sentMemes)
-            }
+    }
     
     //Navigate to meme editor view controller
     func addNewMeme(){
@@ -56,10 +55,14 @@ class SentMemesTableViewController: UIViewController,UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    
+        
+        
         let selectedMeme=sentMemes[indexPath.row]
+ 
         let DetailMemeController=self.storyboard!.instantiateViewController(withIdentifier: "DetailMemeViewController") as! DetailMemeViewController
-        DetailMemeController.memes=selectedMeme
+        
+        DetailMemeController.detailMemes=selectedMeme
+ 
         self.navigationController!.pushViewController(DetailMemeController, animated: true)
     }
     
