@@ -11,14 +11,15 @@ import UIKit
 
 class DetailMemeViewController: UIViewController {
     
-    var detailMemes:memeObject!
+    var detailMeme:memeObject!
     
-    @IBOutlet weak var detailMeme: UIImageView!
+    @IBOutlet weak var detailMemeView: UIImageView!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.detailMeme.image = detailMemes.memedImage
+        self.detailMemeView.image = detailMeme.memedImage
+        print(detailMeme.topText)
     }
     
 }

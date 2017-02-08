@@ -40,7 +40,7 @@ class MemeEditViewController: UIViewController,UIImagePickerControllerDelegate,U
         let object=UIApplication.shared.delegate
         let appDelegate=object as! AppDelegate
         appDelegate.memes.append(meme)
-        print(appDelegate.memes)
+      
         
     }
     

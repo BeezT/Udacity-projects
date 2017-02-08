@@ -17,13 +17,6 @@ struct memeObject {
     var selectedImage: UIImage
     var memedImage: UIImage
     
-    //Initialization
-    init(topText: String, bottomText:String, selectedImage: UIImage, memedImage:UIImage) {
-        self.topText=topText
-        self.bottomText=bottomText
-        self.selectedImage=selectedImage
-        self.memedImage=memedImage
-    }
-    
+       
 }
 
